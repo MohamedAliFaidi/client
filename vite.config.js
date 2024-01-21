@@ -12,7 +12,7 @@ export default defineConfig({
     
       // with options: http://localhost:5173/api/bar-> http://jsonplaceholder.typicode.com/bar
       '/api': {
-        target: "https://jsonplaceholder.typicode.com",
+        target: "https://webpack-mern.vercel.app",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },

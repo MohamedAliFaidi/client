@@ -8,7 +8,15 @@ import { axiosClient } from './lib/axiosClient'
 import List from './components/List'
 
 function App() {
-  const [state, setState] = useState(false)
+  const [state, setState] = useState(``)
+
+  const fetchbackend = ()=>{
+    axiosClient.get('/api/v1').then(res=>{
+      setState(`
+      \nwe just fetched our backend api !!!
+    `)
+    })
+  }
 
  
 
@@ -22,7 +30,29 @@ function App() {
       })}>show/hide setters</button>
       {state && <Child />} */}
 
-      <List/>
+      {/* <List/> */}
+      <button style={
+        {
+          backgroundColor: 'green',
+          color: 'white',
+          padding: '10px',
+          border: 'none',
+          borderRadius: '5px',
+          cursor: 'pointer'
+        }
+      } onClick={fetchbackend}>fetch backend</button>
+      <div
+      style={
+        {
+           display:'flex',
+          padding: '10px',
+          borderRadius: '5px',
+          cursor: 'pointer'
+        }
+      }
+      >
+        {state}
+      </div>
     </>
   )
 }
