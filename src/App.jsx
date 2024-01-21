@@ -11,7 +11,9 @@ function App() {
   const [state, setState] = useState(``)
 
   const fetchbackend = ()=>{
-    axiosClient.get('/v1').then(res=>{
+  fetch('https://express-nqii.onrender.com/v1').then(async res=>{
+    const data = await res.json()
+    console.log(data)
       setState(`
       \nwe just fetched our backend api !!!
     `)
