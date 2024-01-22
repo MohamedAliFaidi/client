@@ -11,7 +11,7 @@ function App() {
   const [state, setState] = useState(``)
 
   const fetchbackend = ()=>{
-  fetch('https://node-sage-six.vercel.app/api').then(async res=>{
+  fetch('/api').then(async res=>{
     const data = await res.json()
     console.log(data)
       setState(`

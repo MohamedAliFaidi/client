@@ -7,15 +7,16 @@ import viteCompression from 'vite-plugin-compression';
 export default defineConfig({
   plugins: [react(),viteCompression()],
   // server: {
-  //   proxy: {
-  //     // string shorthand: http://localhost:5173/foo -> http://localhost:4567/foo
+    proxy: {
+      // string shorthand: http://localhost:5173/foo -> http://localhost:4567/foo
     
-  //     // with options: http://localhost:5173/api/bar-> http://jsonplaceholder.typicode.com/bar
-  //     // '/api': {
-  //     //   target: "https://webpack-mern.vercel.app",
-  //     //   changeOrigin: false,
-  //     //   rewrite: (path) => path.replace(/^\/api/, ''),
-  //     // },
+      // with options: http://localhost:5173/api/bar-> http://jsonplaceholder.typicode.com/bar
+      '/api': {
+        target: "https://node-sage-six.vercel.app",
+        changeOrigin: false,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    }
   //     // with RegEx: http://localhost:5173/fallback/ -> http://jsonplaceholder.typicode.com/
   //   //   '^/fallback/.*': {
   //   //     target: 'http://jsonplaceholder.typicode.com',
