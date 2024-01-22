@@ -14,7 +14,7 @@ export default defineConfig({
       '/api': {
         target: "https://node-sage-six.vercel.app",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
+        rewrite: (path) => path.replace(/^\/api/, 'https://node-sage-six.vercel.app'),
       },
     }
   //     // with RegEx: http://localhost:5173/fallback/ -> http://jsonplaceholder.typicode.com/
