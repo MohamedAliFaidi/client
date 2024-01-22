@@ -13,7 +13,7 @@ export default defineConfig({
       // with options: http://localhost:5173/api/bar-> http://jsonplaceholder.typicode.com/bar
       '/api': {
         target: "https://node-sage-six.vercel.app",
-        changeOrigin: false,
+        changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
     }
