@@ -5,6 +5,12 @@ import viteCompression from 'vite-plugin-compression';
 
 // https://vitejs.dev/config/
   const defaultConfig = {
+    plugins: [
+      react(),
+      viteCompression()
+    ],
+
+  }
   // server: {
    
   //     // with RegEx: http://localhost:5173/fallback/ -> http://jsonplaceholder.typicode.com/
@@ -26,7 +32,7 @@ import viteCompression from 'vite-plugin-compression';
   //   //   },
    
 
-}
+
 
 
 export default defineConfig(({ command, mode }) => {
