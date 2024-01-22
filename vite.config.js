@@ -4,21 +4,10 @@ import viteCompression from 'vite-plugin-compression';
 
 
 // https://vitejs.dev/config/
-export default defineConfig({
+  const defineConfig = {
   plugins: [react(),viteCompression()],
   // server: {
-    server :{
-    proxy: {
-      // string shorthand: http://localhost:5173/foo -> http://localhost:4567/foo
-    
-      // with options: http://localhost:5173/api/bar-> http://jsonplaceholder.typicode.com/bar
-      '/api': {
-        target: "https://node-sage-six.vercel.app",
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, 'https://node-sage-six.vercel.app'),
-      },
-    }
-  }
+   
   //     // with RegEx: http://localhost:5173/fallback/ -> http://jsonplaceholder.typicode.com/
   //   //   '^/fallback/.*': {
   //   //     target: 'http://jsonplaceholder.typicode.com',
@@ -38,4 +27,27 @@ export default defineConfig({
   //   //   },
    
 
+}
+
+
+export default defineConfig(({ command, mode }) => {
+  if (command === 'serve') {
+            
+    const isDev = mode === 'development'
+
+    return {
+      ...defaultConfig,
+      server: {
+        proxy: {
+          '/api': {
+            target: isDev ? 'https://127.0.0.1:4000' : 'https://node-sage-six.vercel.app',
+            changeOrigin: isDev,
+            secure: !isDev
+          }
+        }
+      }
+    }
+  } else {
+    return defaultConfig
+  }
 })
