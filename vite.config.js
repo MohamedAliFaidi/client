@@ -7,6 +7,7 @@ import viteCompression from 'vite-plugin-compression';
 export default defineConfig({
   plugins: [react(),viteCompression()],
   // server: {
+    server :{
     proxy: {
       // string shorthand: http://localhost:5173/foo -> http://localhost:4567/foo
     
@@ -17,6 +18,7 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, 'https://node-sage-six.vercel.app'),
       },
     }
+  }
   //     // with RegEx: http://localhost:5173/fallback/ -> http://jsonplaceholder.typicode.com/
   //   //   '^/fallback/.*': {
   //   //     target: 'http://jsonplaceholder.typicode.com',
