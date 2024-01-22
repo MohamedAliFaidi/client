@@ -11,7 +11,7 @@ function App() {
   const [state, setState] = useState(``)
 
   const fetchbackend = ()=>{
-  fetch('/api').then(async res=>{
+  fetch('/').then(async res=>{
     const data = await res.json()
     console.log(data)
       setState(`
