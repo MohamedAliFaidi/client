@@ -4,8 +4,7 @@ import viteCompression from 'vite-plugin-compression';
 
 
 // https://vitejs.dev/config/
-  const defineConfig = {
-  plugins: [react(),viteCompression()],
+  const defaultConfig = {
   // server: {
    
   //     // with RegEx: http://localhost:5173/fallback/ -> http://jsonplaceholder.typicode.com/
