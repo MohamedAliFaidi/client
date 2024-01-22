@@ -11,9 +11,8 @@ function App() {
   const [state, setState] = useState(``)
 
   const fetchbackend = ()=>{
-  fetch('/api').then(async res=>{
-    const data = await res.json()
-    console.log(data)
+  axiosClient.get('/').then(async res=>{
+    console.log(res.data)
       setState(`
       \nwe just fetched our backend api !!!
     `)
