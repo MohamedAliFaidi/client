@@ -11,7 +11,7 @@ function App() {
   const [state, setState] = useState(``)
 
   const fetchbackend = ()=>{
-  fetch('https://express-nqii.onrender.com/v1').then(async res=>{
+  fetch('https://node-sage-six.vercel.app/api').then(async res=>{
     const data = await res.json()
     console.log(data)
       setState(`
